@@ -13,11 +13,16 @@ class Calculator(ctk.CTk):
         self.geometry(f'{APP_SIZE[0]}x{APP_SIZE[1]}')
         ctk.set_appearance_mode(f'{"dark" if isDark else "light"}')
         self.resizable(False,False)
-        Black = '0x00ABBF50'
         self.change_title_bar_color(isDark)
         self.title('')
         self.iconbitmap('cal2.ico')
+        
+        # Layout
+        self.rowconfigure(list(range(MAIN_ROWS)), weight= 1, uniform= 'a')
+        self.columnconfigure(list(range(MAIN_COLUMNS)), weight= 1, uniform= 'a')
+        
         self.mainloop()
+
         
     def change_title_bar_color(self, isDark):
         try:
@@ -31,7 +36,15 @@ class Calculator(ctk.CTk):
                 )        
         except: 
             pass
+class OutputLabel(ctk.CTkLabel):
+    def __init__(self, parent, row):
+        super().__init__(
+            parent,
+            text= '4+9',
+            fg_color= 'blue'
+            )
+        self.grid(row = row, column = 0, columnspan = 4)
         
-
+        
 if __name__ == '__main__':
     Calculator(darkdetect.isDark())
