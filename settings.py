@@ -33,6 +33,13 @@ MATH_POSITION = {
     '+': {'col': 3, 'row': 5, 'character': '+', 'operator': '+', 'image path': None},
 }
 OPERATORS = {
+    'clear': {'col': 0, 'row': 2, 'text': 'AC', 'image path': None},
+    'invert': {'col': 1, 'row': 2, 'text': 'invert', 'image path': None}, # Image path here
+    'percent': {'col': 2, 'row': 2, 'text': '%', 'image path': None},
+    
+}
+
+COLORS = {
     'light-gray': {'fg': ('#505050', '#D4D4D2'), 'hover': ('#686868', '#efefed'), 'text': ('white', 'black')},
     'dark-gray': {'fg': ('#D4D4D2', '#505050'), 'hover' : ('#efefed', '#686868'), 'text': ('black', 'white')},
     'orange': {'fg': '#FF9500', 'hover': '#ffb143', 'text': ('black', 'white')},
