@@ -1,6 +1,6 @@
 import customtkinter as ctk
 import darkdetect
-from buttons import Buttons, ImageButton
+from buttons import Buttons, ImageButton, NumButton, MathButton, MathImageButton
 from PIL import Image
 from settings import *
 try:
@@ -17,7 +17,11 @@ class Calculator(ctk.CTk):
         self.resizable(False,False)
         self.change_title_bar_color(isDark)
         self.title('')
-        self.iconbitmap('cal2.ico')
+        if isDark:
+            self.iconbitmap('app_icon_dark.ico')
+        else:
+            self.iconbitmap('app_icon_light.ico')
+            
         
         # Layout
         self.rowconfigure(list(range(MAIN_ROWS)), weight= 1, uniform= 'a')
@@ -70,12 +74,59 @@ class Calculator(ctk.CTk):
             func= self.invert,
             col = OPERATORS['invert']['col'],
             row = OPERATORS['invert']['row'],
-            image = invert_image,
+            image = invert_image
         )
+        # Number buttons
+        for num, data, in NUM_POSITIONS.items():
+            NumButton(
+            parent = self,
+            func = self.num_press,
+            text = num,
+            col = data['col'],
+            row = data['row'],
+            span = data['span'],
+            font = main_font,
+            )
+        divide_image = ctk.CTkImage(
+            light_image = Image.open(MATH_POSITION['/']['image path']['light']),
+            dark_image= Image.open(MATH_POSITION['/']['image path']['dark']),
+            size= (50,50)
+            )
+        # the math buttons
+        for operator, data in MATH_POSITION.items():
+            if data['image path']:
+                MathImageButton(
+                parent = self,
+                func = self.math_press,
+                operator = operator,
+                col= data['col'],
+                row = data['row'],
+                image = divide_image,
+                )
+            else:
+                MathButton(
+                    parent = self,
+                    operator= operator,
+                    func= self.math_press,
+                    text =data['character'],
+                    col = data['col'],
+                    row = data['row'],
+                    font= main_font,
+                    )
+            
+
+    def math_press(self, value):
+        self.result_string.set(value=value)
+             
+    def num_press(self, value):
+        print(value)
+        
     def invert(self):
         print('invert')
+        
     def percent(self):
-        print('%')     
+        print('%')   
+          
     def clear(self):
         print('clear')
            
@@ -102,4 +153,4 @@ class OutputLabel(ctk.CTkLabel):
         
         
 if __name__ == '__main__':
-    Calculator( darkdetect.isDark())
+    Calculator(darkdetect.isDark())

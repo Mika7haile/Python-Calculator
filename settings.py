@@ -13,7 +13,7 @@ STYLING ={
     'corner-radius': 0
 }
 NUM_POSITIONS = {
-    '.': {'col' : 2, 'row': 6, 'span' : 1},
+   '.': {'col' : 2, 'row': 6, 'span' : 1},
     0: {'col': 0, 'row': 6, 'span': 2},
     1: {'col': 0, 'row': 5, 'span': 1},
     2: {'col': 1, 'row': 5, 'span': 1},
@@ -26,15 +26,15 @@ NUM_POSITIONS = {
     9: {'col': 2, 'row': 3, 'span': 1},
 }
 MATH_POSITION = {
-    '/': {'col': 3, 'row': 2, 'character': '', 'operator': '/', 'image path': {'light': 'images/divide_light.ico', 'dark': 'image/divide_dark.ico' }},
-    '*': {'col': 3, 'row': 3, 'character': '*', 'operator': '*', 'image path': None},
-    '-': {'col': 3, 'row': 4, 'character': '-', 'operator': '-', 'image path': None},
-    '=': {'col': 3, 'row': 6, 'character': '=', 'operator': '=', 'image path': None},
-    '+': {'col': 3, 'row': 5, 'character': '+', 'operator': '+', 'image path': None},
+    '/': {'col': 3, 'row': 2, 'character': '',  'image path': {'light': 'images/divide_black.png', 'dark': 'images/divide_white.png' }},
+    '*': {'col': 3, 'row': 3, 'character': '*', 'image path': None}, #divide_white.png
+    '-': {'col': 3, 'row': 4, 'character': '-', 'image path': None},
+    '=': {'col': 3, 'row': 6, 'character': '=', 'image path': None},
+    '+': {'col': 3, 'row': 5, 'character': '+', 'image path': None},
 }
 OPERATORS = {
     'clear': {'col': 0, 'row': 2, 'text': 'AC', 'image path': None},
-    'invert': {'col': 1, 'row': 2, 'text': '', 'image path': {'light': 'images/invert.ico', 'dark': 'images/invert.png'}}, # Image path here
+    'invert': {'col': 1, 'row': 2, 'text': '', 'image path': {'light': 'images/invert_black.png', 'dark': 'images/invert_white.png'}}, # Image path here
     'percent': {'col': 2, 'row': 2, 'text': '%', 'image path': None},
     
 }
